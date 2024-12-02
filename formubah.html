@@ -40,11 +40,11 @@
       const queryString = window.location.search
       const parameterURL = new URLSearchParams(queryString)
       const id = parameterURL.get('id')
-      const pelanggan = await ambilalamat(id)
+      const pelanggan= await ambilpelanggan(id)
 
-      $("#inputnama").val(buah.nama)
-      $("#inputtlpon").val(buah.tlpon)
-      $("#inputalamat").val(buah.alamat)
+      $("#inputnama").val(pelanggan.nama)
+      $("#inputtlpon").val(pelanggan.tlpon)
+      $("#inputalamat").val(pelanggan.alamat)
 
       // ketika tombol tambah di pencet
       $('#tombolsimpan').click(async function(event) {
@@ -55,7 +55,7 @@
         let alamat = $('#inputalamat').val()
 
         // simpan data buah yang baru
-        await ubahBuah(id, nama, tlpon, alamat)
+        await ubahpelanggan(id, nama, tlpon, alamat)
 
         window.location.href = 'index.html'
       });
